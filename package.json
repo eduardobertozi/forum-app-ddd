@@ -1,0 +1,33 @@
+{
+  "name": "ddd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepare": "husky",
+     "commit": "git-cz"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@rocketseat/eslint-config": "^2.2.2",
+    "@types/node": "^22.13.1",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
