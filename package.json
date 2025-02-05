@@ -6,7 +6,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "prepare": "husky",
-     "commit": "git-cz"
+    "commit": "git-cz"
   },
   "keywords": [],
   "author": "",
@@ -29,5 +29,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13"
   }
 }
