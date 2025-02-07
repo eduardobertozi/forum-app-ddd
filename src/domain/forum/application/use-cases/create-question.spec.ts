@@ -1,18 +1,18 @@
-import { AnswersRepositoru } from '../repositories/answers.repository'
-import { AnswerQuestionUseCase } from './answer-question'
+import { QuestionsRepositoru } from '@/domain/forum/application/repositories/questions.repository'
+import { CreateQuestionUseCase } from '@/domain/forum/application/use-cases/create-question'
 
-const fakeAnswersRepositoru: AnswersRepositoru = {
+const fakeQuestionsRepositoru: QuestionsRepositoru = {
   create: async () => {},
 }
 
-test('create answer', async () => {
-  const answerQuestion = new AnswerQuestionUseCase(fakeAnswersRepositoru)
+test('create a question', async () => {
+  const createQuestion = new CreateQuestionUseCase(fakeQuestionsRepositoru)
 
-  const answer = await answerQuestion.execute({
-    questionId: '1',
-    instructorId: '1',
-    content: 'Nova resposta',
+  const { question } = await createQuestion.execute({
+    authorId: '1',
+    title: 'New question',
+    content: 'Question content',
   })
 
-  expect(answer.content).toEqual('Nova resposta')
+  expect(question.id).toBeTruthy()
 })
