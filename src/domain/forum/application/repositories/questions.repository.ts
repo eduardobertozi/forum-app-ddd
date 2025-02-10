@@ -1,6 +1,6 @@
 import { Question } from '@/domain/forum/enterprise/entities/question'
 
-export interface QuestionsRepositoru {
+export interface QuestionsRepository {
   findById(id: string): Promise<Question | null>
   findBySlug(slug: string): Promise<Question | null>
   save(question: Question): Promise<void>

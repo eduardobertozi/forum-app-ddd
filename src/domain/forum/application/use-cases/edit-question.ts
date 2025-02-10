@@ -1,4 +1,5 @@
-import { QuestionsRepositoru } from '@/domain/forum/application/repositories/questions.repository'
+import { QuestionsRepository } from '@/domain/forum/application/repositories/questions.repository'
+import { Question } from '@/domain/forum/enterprise/entities/question'
 
 interface EditQuestionRequest {
   authorId: string
@@ -7,10 +8,12 @@ interface EditQuestionRequest {
   content: string
 }
 
-interface EditQuestionResponse {}
+interface EditQuestionResponse {
+  question: Question
+}
 
 export class EditQuestionUseCase {
-  constructor(private questionsRepository: QuestionsRepositoru) {}
+  constructor(private questionsRepository: QuestionsRepository) {}
 
   async execute({
     authorId,
@@ -31,8 +34,8 @@ export class EditQuestionUseCase {
     question.title = title
     question.content = content
 
-    await this.questionsRepository.save(question)
-
-    return {}
+    return {
+      question,
+    }
   }
 }
