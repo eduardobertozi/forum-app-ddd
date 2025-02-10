@@ -1,5 +1,5 @@
 import { Question } from '@/domain/forum/enterprise/entities/question'
-import { QuestionsRepositoru } from '@/domain/forum/application/repositories/questions.repository'
+import { QuestionsRepository } from '@/domain/forum/application/repositories/questions.repository'
 
 interface GetQuestionBySlugUseCaseRequest {
   slug: string
@@ -10,7 +10,7 @@ interface GetQuestionBySlugUseCaseResponse {
 }
 
 export class GetQuestionBySlugUseCase {
-  constructor(private questionsRepository: QuestionsRepositoru) {}
+  constructor(private questionsRepository: QuestionsRepository) {}
 
   async execute({
     slug,
