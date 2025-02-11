@@ -1,10 +1,12 @@
-import { AnswerProps } from '@/domain/forum/enterprise/entities/answer'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
 import { faker } from '@faker-js/faker'
-import { AnswerComment } from '@/domain/forum/enterprise/entities/answer-comment'
+import {
+  AnswerComment,
+  AnswerCommentProps,
+} from '@/domain/forum/enterprise/entities/answer-comment'
 
 export function makeAnswerComment(
-  override: Partial<AnswerProps> = {},
+  override: Partial<AnswerCommentProps> = {},
   id?: UniqueEntityId,
 ) {
   return AnswerComment.create(
