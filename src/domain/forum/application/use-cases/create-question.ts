@@ -2,11 +2,13 @@ import { QuestionsRepository } from '@/domain/forum/application/repositories/que
 import { Question } from '@/domain/forum/enterprise/entities/question'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
 import { Either, right } from '@/core/either'
+import { QuestionAttachment } from '@/domain/forum/enterprise/entities/question-attachment'
 
 interface CreateQuestionRequest {
   authorId: string
   title: string
   content: string
+  attachmentsIds: string[]
 }
 
 type CreateQuestionResponse = Either<
@@ -23,11 +25,19 @@ export class CreateQuestionUseCase {
     authorId,
     title,
     content,
+    attachmentsIds,
   }: CreateQuestionRequest): Promise<CreateQuestionResponse> {
     const question = Question.create({
       authorId: new UniqueEntityId(authorId),
       title,
       content,
+    })
+
+    question.attachments = attachmentsIds.map((attachmentsId) => {
+      return QuestionAttachment.create({
+        attachmentId: new UniqueEntityId(attachmentsId),
+        questionId: question.id,
+      })
     })
 
     await this.questionsRepository.create(question)
