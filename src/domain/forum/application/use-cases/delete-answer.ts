@@ -24,7 +24,7 @@ export class DeleteAnswerUseCase {
     }
 
     if (authorId !== answer.authorId.toString()) {
-      return left(new ResourceNotFoundError())
+      return left(new NotAllowedError())
     }
 
     await this.answersRepository.delete(answer)

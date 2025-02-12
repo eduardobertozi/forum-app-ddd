@@ -32,7 +32,7 @@ export class EditAnswerUseCase {
     }
 
     if (authorId !== answer.authorId.toString()) {
-      return left(new ResourceNotFoundError())
+      return left(new NotAllowedError())
     }
 
     answer.content = content

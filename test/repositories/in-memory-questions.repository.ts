@@ -5,7 +5,7 @@ import { PaginationParams } from '@/core/repositories/pagination-params'
 export class InMemoryQuestionsRepository implements QuestionsRepository {
   public items: Question[] = []
 
-  async findById(id: string): Promise<Question | null> {
+  async findById(id: string) {
     const question = this.items.find((item) => item.id.toString() === id)
 
     if (!question) {
@@ -15,7 +15,7 @@ export class InMemoryQuestionsRepository implements QuestionsRepository {
     return question
   }
 
-  async findBySlug(slug: string): Promise<Question | null> {
+  async findBySlug(slug: string) {
     const question = this.items.find((item) => item.slug.value === slug)
 
     if (!question) {
