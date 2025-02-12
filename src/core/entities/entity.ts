@@ -1,7 +1,7 @@
 import { UniqueEntityId } from './value-objects/unique-entity-id'
 
-export class Entity<Props> {
-  private _id: UniqueEntityId
+export abstract class Entity<Props> {
+  private readonly _id: UniqueEntityId
   protected props: Props
 
   get id() {
