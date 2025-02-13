@@ -1,14 +1,14 @@
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
 import { Entity } from '@/core/entities/entity'
 
-interface AnswerAttachmentProps {
-  questionId: UniqueEntityId
+export interface AnswerAttachmentProps {
+  answerId: UniqueEntityId
   attachmentId: UniqueEntityId
 }
 
 export class AnswerAttachment extends Entity<AnswerAttachmentProps> {
-  get questionId() {
-    return this.props.questionId
+  get answerId() {
+    return this.props.answerId
   }
 
   get attachmentId() {
