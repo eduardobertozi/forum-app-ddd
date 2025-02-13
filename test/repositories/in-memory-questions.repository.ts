@@ -7,7 +7,7 @@ export class InMemoryQuestionsRepository implements QuestionsRepository {
   public items: Question[] = []
 
   constructor(
-    private questionAttachmentsRepository: QuestionAttachmentsRepository,
+    private questionAttachmentsRepository?: QuestionAttachmentsRepository,
   ) {}
 
   async findById(id: string) {
@@ -49,7 +49,7 @@ export class InMemoryQuestionsRepository implements QuestionsRepository {
     const itemIndex = this.items.findIndex((item) => item.id === question.id)
     this.items.splice(itemIndex, 1)
 
-    await this.questionAttachmentsRepository.deleteManyByQuestionId(
+    await this.questionAttachmentsRepository?.deleteManyByQuestionId(
       question.id.toString(),
     )
   }
