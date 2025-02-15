@@ -2,7 +2,7 @@ import { InMemoryQuestionsRepository } from '@root/test/repositories/in-memory-q
 import { makeQuestion } from '@root/test/factories/make-questions'
 import { DeleteQuestionUseCase } from '@/domain/forum/application/use-cases/delete-question'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
-import { NotAllowedError } from '@/domain/forum/application/use-cases/errors/not-allowed-error'
+import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
 import { InMemoryQuestionAttachmentsRepository } from '@root/test/repositories/in-memory-question-attachments.repository'
 import { makeQuestionAttachment } from '@root/test/factories/make-question-attachment'
 
