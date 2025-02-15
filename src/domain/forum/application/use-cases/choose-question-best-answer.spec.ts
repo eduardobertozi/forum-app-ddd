@@ -4,7 +4,7 @@ import { InMemoryQuestionsRepository } from '@root/test/repositories/in-memory-q
 import { ChooseQuestionBestAnswerUseCase } from '@/domain/forum/application/use-cases/choose-question-best-answer'
 import { makeAnswer } from '@root/test/factories/make-answer'
 import { makeQuestion } from '@root/test/factories/make-questions'
-import { NotAllowedError } from '@/domain/forum/application/use-cases/errors/not-allowed-error'
+import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
 
 let inMemoryQuestionRepository: InMemoryQuestionsRepository
 let inMemoryAnswersRepository: InMemoryAnswersRepository
