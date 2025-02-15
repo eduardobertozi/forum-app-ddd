@@ -17,17 +17,27 @@
   "devDependencies": {
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
+    "@eslint/js": "^9.20.0",
     "@faker-js/faker": "^9.4.0",
-    "@rocketseat/eslint-config": "^2.2.2",
     "@types/node": "^22.13.1",
+    "@vitest/eslint-plugin": "^1.1.31",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.20.1",
+    "eslint-plugin-perfectionist": "^4.9.0",
     "eslint-plugin-vitest-globals": "^1.5.0",
+    "globals": "^15.15.0",
     "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.5"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "config": {
     "commitizen": {

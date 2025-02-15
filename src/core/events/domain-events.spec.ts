@@ -1,11 +1,11 @@
-import { AggregateRoot } from "../entities/aggregate-root";
-import { UniqueEntityID } from "../entities/unique-entity-id";
-import { DomainEvent } from "./domain-event";
-import { DomainEvents } from "./domain-events";
+import { AggregateRoot } from '../entities/aggregate-root'
+import { UniqueEntityID } from '../entities/unique-entity-id'
+import { DomainEvent } from './domain-event'
+import { DomainEvents } from './domain-events'
 
-/** 
+/**
  * Representa um evento de domínio
-*/
+ */
 class CustomAggregateCreated implements DomainEvent {
   public ocurredAt: Date
   private aggregate: CustomAggregate
@@ -14,7 +14,7 @@ class CustomAggregateCreated implements DomainEvent {
     this.ocurredAt = new Date()
     this.aggregate = aggregate
   }
-  
+
   public getAggregateId(): UniqueEntityID {
     return this.aggregate.id
   }
@@ -32,7 +32,7 @@ class CustomAggregate extends AggregateRoot<null> {
 describe('Domain events', () => {
   it('should be able to dispatch and listen to events', () => {
     const callBackSpy = vi.fn()
-    
+
     /* Subscriber cadastrado (ouvindo o evento de "resposta criada") */
     DomainEvents.register(callBackSpy, CustomAggregateCreated.name)
 
