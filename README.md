@@ -21,3 +21,27 @@ de commits.
 ## Histórias de um Domain Expert
 - Muita dificuldade em saber as dúvidas dos alunos
 - Eu Tenho que responder alunos, e me perco em quais dúvidas foram respondidas
+
+## Subdomínios
+- Core: O que dá dinheiro
+- Supporting: Dá suporte para o core funcionar
+- Generic: Você precisa, mas não é tão importante
+
+Exemplos em uma aplicação de e-commerce
+
+### Core
+- Compra
+- Catálogo
+- Pagamento
+- Entrega
+- Faturamento
+
+### Supporting
+
+- Estoque
+
+### Generic
+
+- Notificação ao cliente
+- Promoções
+- Chat
