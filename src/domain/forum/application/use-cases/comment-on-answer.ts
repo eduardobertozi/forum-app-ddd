@@ -1,5 +1,5 @@
 import { AnswersRepository } from '@/domain/forum/application/repositories/answers.repository'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { AnswerComment } from '@/domain/forum/enterprise/entities/answer-comment'
 import { AnswersCommentsRepository } from '@/domain/forum/application/repositories/answers-comments.repository'
 import { Either, left, right } from '@/core/either'
@@ -36,8 +36,8 @@ export class CommentOnAnswerUseCase {
     }
 
     const questionComment = AnswerComment.create({
-      authorId: new UniqueEntityId(authorId),
-      answerId: new UniqueEntityId(answerId),
+      authorId: new UniqueEntityID(authorId),
+      answerId: new UniqueEntityID(answerId),
       content,
     })
 

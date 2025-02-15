@@ -3,7 +3,7 @@ import { Answer } from '@/domain/forum/enterprise/entities/answer'
 import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found'
 import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
 import { Either, left, right } from '@/core/either'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { AnswerAttachment } from '@/domain/forum/enterprise/entities/answer-attachment'
 import { AnswerAttachmentsRepository } from '@/domain/forum/application/repositories/answer-attachments.repository'
 import { AnswerAttachmentList } from '@/domain/forum/enterprise/entities/answer-attachment-list'
@@ -53,7 +53,7 @@ export class EditAnswerUseCase {
 
     const answerAttachments = attachmentsIds.map((attachmentsId) => {
       return AnswerAttachment.create({
-        attachmentId: new UniqueEntityId(attachmentsId),
+        attachmentId: new UniqueEntityID(attachmentsId),
         answerId: answer.id,
       })
     })
