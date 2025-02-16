@@ -1,6 +1,7 @@
 import globals from 'globals'
 import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
+import vitest from '@vitest/eslint-plugin'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -9,13 +10,8 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    extends: ['plugin:vitest-globals/recommended'],
-    rules: {
-      'no-useless-constructor': 'off',
-    },
-    env: {
-      files: ['**/*.{j,t}s?(x)', '**/*.spec.{j,t}s?(x)'],
-      'vitest-globals/env': true,
+    plugins: {
+      vitest,
     },
   },
 ]
