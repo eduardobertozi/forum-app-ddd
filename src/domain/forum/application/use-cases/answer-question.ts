@@ -1,6 +1,6 @@
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
 import { AnswersRepository } from '../repositories/answers.repository'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Either, right } from '@/core/either'
 import { AnswerAttachmentList } from '@/domain/forum/enterprise/entities/answer-attachment-list'
 import { AnswerAttachment } from '@/domain/forum/enterprise/entities/answer-attachment'
@@ -30,13 +30,13 @@ export class AnswerQuestionUseCase {
   }: AnswerQuestionRequest): Promise<AnswerQuestionResponse> {
     const answer = Answer.create({
       content,
-      authorId: new UniqueEntityId(instructorId),
-      questionId: new UniqueEntityId(questionId),
+      authorId: new UniqueEntityID(instructorId),
+      questionId: new UniqueEntityID(questionId),
     })
 
     const answerAttachments = attachmentsIds.map((attachmentsId) => {
       return AnswerAttachment.create({
-        attachmentId: new UniqueEntityId(attachmentsId),
+        attachmentId: new UniqueEntityID(attachmentsId),
         answerId: answer.id,
       })
     })

@@ -1,7 +1,7 @@
 import { FetchQuestionAnswersUseCase } from '@/domain/forum/application/use-cases/fetch-question-answer'
 import { InMemoryAnswersRepository } from '@root/test/repositories/in-memory-answers.repository'
 import { makeAnswer } from '@root/test/factories/make-answer'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { InMemoryAnswerAttachmentsRepository } from '@root/test/repositories/in-memory-answer-attachments.repository'
 
 let inMemoryAnswersRepository: InMemoryAnswersRepository
@@ -20,13 +20,13 @@ describe('Fetch Question Answers', () => {
 
   it('should be able to fetch question answers', async () => {
     await inMemoryAnswersRepository.create(
-      makeAnswer({ questionId: new UniqueEntityId('question-1') }),
+      makeAnswer({ questionId: new UniqueEntityID('question-1') }),
     )
     await inMemoryAnswersRepository.create(
-      makeAnswer({ questionId: new UniqueEntityId('question-1') }),
+      makeAnswer({ questionId: new UniqueEntityID('question-1') }),
     )
     await inMemoryAnswersRepository.create(
-      makeAnswer({ questionId: new UniqueEntityId('question-1') }),
+      makeAnswer({ questionId: new UniqueEntityID('question-1') }),
     )
 
     const result = await sut.execute({
@@ -41,7 +41,7 @@ describe('Fetch Question Answers', () => {
   it('should be able to fetch paginated question answers', async () => {
     for (let i = 1; i <= 22; i++) {
       await inMemoryAnswersRepository.create(
-        makeAnswer({ questionId: new UniqueEntityId('question-1') }),
+        makeAnswer({ questionId: new UniqueEntityID('question-1') }),
       )
     }
 

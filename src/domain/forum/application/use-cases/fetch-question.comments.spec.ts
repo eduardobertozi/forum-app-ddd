@@ -1,4 +1,4 @@
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { InMemoryQuestionCommentsRepository } from '@root/test/repositories/in-memory-questions-comment.repository'
 import { FetchQuestionCommentsUseCase } from '@/domain/forum/application/use-cases/fetch-question.comments'
 import { makeQuestionComment } from '@root/test/factories/make-question-comment'
@@ -16,19 +16,19 @@ describe('Fetch Question Comments', () => {
   it('should be able to fetch question comments', async () => {
     await inMemoryQuestionCommentsRepository.create(
       makeQuestionComment({
-        questionId: new UniqueEntityId('question-1'),
+        questionId: new UniqueEntityID('question-1'),
       }),
     )
 
     await inMemoryQuestionCommentsRepository.create(
       makeQuestionComment({
-        questionId: new UniqueEntityId('question-1'),
+        questionId: new UniqueEntityID('question-1'),
       }),
     )
 
     await inMemoryQuestionCommentsRepository.create(
       makeQuestionComment({
-        questionId: new UniqueEntityId('question-1'),
+        questionId: new UniqueEntityID('question-1'),
       }),
     )
 
@@ -45,7 +45,7 @@ describe('Fetch Question Comments', () => {
     for (let i = 1; i <= 22; i++) {
       await inMemoryQuestionCommentsRepository.create(
         makeQuestionComment({
-          questionId: new UniqueEntityId('question-1'),
+          questionId: new UniqueEntityID('question-1'),
         }),
       )
     }

@@ -1,6 +1,5 @@
-
 import { InMemoryNotificationsRepository } from '@root/test/repositories/in-memory-notifications.repository'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { SendNotificationUseCase } from './send-notification'
 
 let inMemoryNotificationsRepository: InMemoryNotificationsRepository
@@ -20,6 +19,8 @@ describe('Create Notification', () => {
     })
 
     expect(result.isRight()).toBe(true)
-    expect(inMemoryNotificationsRepository.items[0]).toEqual(result.value?.notification)
+    expect(inMemoryNotificationsRepository.items[0]).toEqual(
+      result.value?.notification,
+    )
   })
 })

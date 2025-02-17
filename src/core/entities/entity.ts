@@ -1,15 +1,29 @@
-import { UniqueEntityId } from './value-objects/unique-entity-id'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { UniqueEntityID } from './unique-entity-id'
 
 export abstract class Entity<Props> {
-  private readonly _id: UniqueEntityId
+  private readonly _id: UniqueEntityID
   protected props: Props
 
   get id() {
     return this._id
   }
 
-  protected constructor(props: Props, id?: UniqueEntityId) {
+  protected constructor(props: Props, id?: UniqueEntityID) {
     this.props = props
-    this._id = id ?? new UniqueEntityId(id)
+    this._id = id ?? new UniqueEntityID(id)
+  }
+
+  public equals(entity: Entity<any>) {
+    if (entity === this) {
+      return true
+    }
+
+    if (entity.id === this._id) {
+      return true
+    }
+
+    return false
   }
 }

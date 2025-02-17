@@ -6,7 +6,7 @@ import { Either, left, right } from '@/core/either'
 import { QuestionAttachmentsRepository } from '@/domain/forum/application/repositories/question-attachments.repository'
 import { QuestionAttachmentList } from '@/domain/forum/enterprise/entities/question-attachment-list'
 import { QuestionAttachment } from '@/domain/forum/enterprise/entities/question-attachment'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 interface EditQuestionRequest {
   authorId: string
@@ -55,7 +55,7 @@ export class EditQuestionUseCase {
 
     const questionAttachments = attachmentsIds.map((attachmentsId) => {
       return QuestionAttachment.create({
-        attachmentId: new UniqueEntityId(attachmentsId),
+        attachmentId: new UniqueEntityID(attachmentsId),
         questionId: question.id,
       })
     })

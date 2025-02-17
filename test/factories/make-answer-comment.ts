@@ -1,4 +1,4 @@
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { faker } from '@faker-js/faker'
 import {
   AnswerComment,
@@ -7,12 +7,12 @@ import {
 
 export function makeAnswerComment(
   override: Partial<AnswerCommentProps> = {},
-  id?: UniqueEntityId,
+  id?: UniqueEntityID,
 ) {
   return AnswerComment.create(
     {
-      authorId: new UniqueEntityId(),
-      answerId: new UniqueEntityId(),
+      authorId: new UniqueEntityID(),
+      answerId: new UniqueEntityID(),
       content: faker.lorem.text(),
       ...override,
     },

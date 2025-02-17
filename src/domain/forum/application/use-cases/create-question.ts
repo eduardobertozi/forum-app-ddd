@@ -1,6 +1,6 @@
 import { QuestionsRepository } from '@/domain/forum/application/repositories/questions.repository'
 import { Question } from '@/domain/forum/enterprise/entities/question'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Either, right } from '@/core/either'
 import { QuestionAttachment } from '@/domain/forum/enterprise/entities/question-attachment'
 import { QuestionAttachmentList } from '@/domain/forum/enterprise/entities/question-attachment-list'
@@ -29,14 +29,14 @@ export class CreateQuestionUseCase {
     attachmentsIds,
   }: CreateQuestionRequest): Promise<CreateQuestionResponse> {
     const question = Question.create({
-      authorId: new UniqueEntityId(authorId),
+      authorId: new UniqueEntityID(authorId),
       title,
       content,
     })
 
     const questionAttachments = attachmentsIds.map((attachmentsId) => {
       return QuestionAttachment.create({
-        attachmentId: new UniqueEntityId(attachmentsId),
+        attachmentId: new UniqueEntityID(attachmentsId),
         questionId: question.id,
       })
     })

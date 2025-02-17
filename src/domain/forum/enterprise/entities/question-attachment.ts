@@ -1,9 +1,9 @@
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Entity } from '@/core/entities/entity'
 
 export interface QuestionAttachmentProps {
-  questionId: UniqueEntityId
-  attachmentId: UniqueEntityId
+  questionId: UniqueEntityID
+  attachmentId: UniqueEntityID
 }
 
 export class QuestionAttachment extends Entity<QuestionAttachmentProps> {
@@ -15,7 +15,7 @@ export class QuestionAttachment extends Entity<QuestionAttachmentProps> {
     return this.props.attachmentId
   }
 
-  static create(props: QuestionAttachmentProps, id?: UniqueEntityId) {
+  static create(props: QuestionAttachmentProps, id?: UniqueEntityID) {
     return new QuestionAttachment(props, id)
   }
 }
